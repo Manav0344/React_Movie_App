@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"; 
 import { useParams } from "react-router-dom";
 import { fetchFromTMDB, imageURL } from "../api/tmbd";
-import toast, { Toaster } from "react-hot-toast"; // <-- import toast
+import toast, { Toaster } from "react-hot-toast"; 
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -29,12 +29,12 @@ const MovieDetails = () => {
 
   return (
     <div className="max-w-6xl mx-auto mt-24 px-4">
-      {/* Toast container */}
+      
       <Toaster position="top-right" reverseOrder={false} />
 
       <div className="grid md:grid-cols-2 gap-6">
-        {/* Poster */}
-        <div>
+       
+        <div className="mb-10">
           <img
             src={imageURL(movie.poster_path, "w342")}
             alt={movie.title}
@@ -42,7 +42,7 @@ const MovieDetails = () => {
           />
         </div>
 
-        {/* Movie Info */}
+        
         <div>
           <h1 className="text-3xl font-bold">{movie.title}</h1>
 

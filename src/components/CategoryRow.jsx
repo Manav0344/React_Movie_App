@@ -5,7 +5,7 @@ import { fetchFromTMDB } from "../api/tmbd"
 export default function CategoryRow({
   title = "Trending Now",
   endpoint = "trending/movie/week",
-  params = {},          // ✅ FIX 1
+  params = {},        
 }) {
   const [items, setItems] = useState([])
   const scrollRef = useRef(null)
@@ -15,14 +15,14 @@ export default function CategoryRow({
       const data = await fetchFromTMDB(endpoint, {
         language: "en-US",
         page: 1,
-        ...params,        // ✅ FIX 2
+        ...params,       
       })
 
       setItems(data?.results || [])
     }
 
     fetchMovies()
-  }, [endpoint, params]) // ✅ FIX 3
+  }, [endpoint, params])
 
   const scroll = (dir) => {
     if (!scrollRef.current) return

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchFromTMDB, imageURL } from "../api/tmbd";
 import { Link } from "react-router-dom";
-import toast, { Toaster } from "react-hot-toast"; // import react-hot-toast
+import toast, { Toaster } from "react-hot-toast"; 
 
 const Heroslider = () => {
   const [items, setItems] = useState([]);
@@ -34,7 +34,7 @@ const Heroslider = () => {
 
   return (
     <div className="relative h-[80vh] overflow-hidden rounded-b-lg">
-      {/* Toast container */}
+      
       <Toaster position="top-right" reverseOrder={false} />
 
       {items.map((item, i) => (

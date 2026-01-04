@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { fetchFromTMDB, imageURL } from "../api/tmbd";
 import { Link } from "react-router-dom";
-import toast, { Toaster } from "react-hot-toast"; // <-- import toast
+import toast, { Toaster } from "react-hot-toast"; 
 
 const MoviesHeroslider = () => {
   const [items, setItems] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Fetch bollywood + south movies
+  
   useEffect(() => {
     const fetchMovies = async () => {
       try {
@@ -37,7 +37,7 @@ const MoviesHeroslider = () => {
     fetchMovies();
   }, []);
 
-  // Auto slide every 8 seconds
+  
   useEffect(() => {
     if (!items.length) return;
 
@@ -48,7 +48,7 @@ const MoviesHeroslider = () => {
     return () => clearInterval(interval);
   }, [items]);
 
-  // Add to My List with toast
+
   const addToMyList = (movie) => {
     const existingList = JSON.parse(localStorage.getItem("myList")) || [];
     const alreadyAdded = existingList.find((m) => m.id === movie.id);
@@ -63,7 +63,7 @@ const MoviesHeroslider = () => {
 
   return (
     <div className="relative h-[80vh] overflow-hidden rounded-b-lg">
-      {/* Toast container */}
+      
       <Toaster position="top-right" reverseOrder={false} />
 
       {items.map((item, i) => (
