@@ -102,14 +102,7 @@ HashRouter ensures:
 
 ---
 
-## 📸 Screenshots
 
-Add screenshots here:
-- Home Page
-- Movie Slider
-- Movie Details Page
-- Search Results
-- Mobile View
 
 ---
 
