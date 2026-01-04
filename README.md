@@ -1,16 +1,140 @@
-# React + Vite
+# 🎬 React Movie App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive **Movie Streaming UI** built using **React + Vite + Tailwind CSS**, powered by the **TMDB API**.  
+The app features trending movies, Bollywood & South Indian movies, movie details, search functionality, and a personal **My List** feature with local storage.
 
-Currently, two official plugins are available:
+🔗 **Live Demo**:  
+https://manav0344.github.io/React_Movie_App/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 🎞 Movie Browsing
+- Trending Movies Slider (Auto-play every 8 seconds)
+- Bollywood Movies (Hindi)
+- South Indian Movies (Tamil, Telugu, Malayalam, Kannada)
+- Category-based movie rows
 
-## Expanding the ESLint configuration
+### 🔍 Search
+- Live movie search using TMDB API
+- Search dropdown with movie results
+- Dedicated search results page
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 📄 Movie Details Page
+- Movie poster & backdrop
+- Overview, rating, runtime, genres
+- YouTube trailer (if available)
+- Add to **My List**
+
+### ❤️ My List
+- Save favorite movies to **LocalStorage**
+- Prevent duplicate movies
+- Toast notifications for actions
+
+### 📱 Responsive UI
+- Fully mobile-friendly
+- Hamburger menu for mobile
+- Smooth hover animations
+
+### 🔔 Notifications
+- Beautiful toast notifications using **react-hot-toast**
+
+---
+
+## 🛠 Tech Stack
+
+- React 19
+- Vite
+- React Router DOM (HashRouter)
+- Tailwind CSS
+- TMDB API
+- LocalStorage
+- react-hot-toast
+- GitHub Pages
+
+---
+
+## 📂 Project Structure
+
+src/
+├── api/
+│ └── tmbd.js
+├── components/
+│ ├── Navbar.jsx
+│ ├── SearchBar.jsx
+│ ├── Heroslider.jsx
+│ ├── MoviesHeroslider.jsx
+│ ├── CategoryRow.jsx
+│ ├── MovieCard.jsx
+│ └── Toast.jsx
+├── pages/
+│ ├── Home.jsx
+│ ├── MovieDetails.jsx
+│ ├── Movies.jsx
+│ └── SearchResults.jsx
+├── App.jsx
+├── main.jsx
+└── index.css
+
+
+
+---
+
+## 🔑 Environment Variables
+
+Create a `.env` file in the root directory:
+
+VITE_TMDB_API_KEY=your_tmdb_api_key_here
+VITE_TMDB_BASE_URL=https://api.themoviedb.org/3
+
+
+
+---
+
+## ❓ Why HashRouter?
+
+GitHub Pages does not support server-side routing.  
+HashRouter ensures:
+- No white screen on refresh
+- Direct URL access works
+- Smooth navigation
+
+---
+
+## 📸 Screenshots
+
+Add screenshots here:
+- Home Page
+- Movie Slider
+- Movie Details Page
+- Search Results
+- Mobile View
+
+---
+
+## 📌 Future Improvements
+
+- User authentication
+- Cloud-based watchlist
+- Pagination in search
+- TV Shows section
+- Dark/Light theme toggle
+
+---
+
+## 🙌 Credits
+
+- Movie data from The Movie Database (TMDB)
+- UI inspired by modern streaming platforms
+
+---
+
+## 👨‍💻 Author
+
+Manav Solanki  
+GitHub: https://github.com/Manav0344  
+
+---
+
+⭐ If you like this project, give it a star on GitHub!
