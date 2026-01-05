@@ -37,12 +37,12 @@ const MovieDetails = () => {
      
       <button
         onClick={() => navigate("/")}
-        className="mb-6 flex items-center gap-2 text-gray-300 hover:text-white transition border border-gray-600 px-4 py-2 rounded-md "
+        className="mb-6 flex items-center gap-2 bg-slate-600 text-gray-300 hover:text-white transition border border-gray-600 px-4 py-2 rounded-md "
       >
         ← Back to Home
       </button>
 
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-2 gap-20 mt-5 mb-10">
         <img
           src={imageURL(movie.poster_path, "w342")}
           alt={movie.title}
