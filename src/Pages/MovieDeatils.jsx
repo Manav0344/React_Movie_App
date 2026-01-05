@@ -30,14 +30,19 @@ const MovieDetails = () => {
 
   if (!movie) return <div className="mt-24 text-center">Loading...</div>;
 
+
+  const trailer = movie.videos?.results?.find(
+    (v) => v.type === "Trailer" && v.site === "YouTube"
+  );
+
   return (
-    <div className="max-w-6xl mx-auto mt-15 px-4">
+    <div className="max-w-6xl mx-auto mt-5 px-4">
       <Toaster position="top-right" />
 
-     
+      
       <button
         onClick={() => navigate("/")}
-        className="mb-6 flex items-center gap-2 bg-slate-600 text-gray-300 hover:text-white transition border border-gray-600 px-4 py-2 rounded-md "
+        className="mb-6 flex items-center gap-2 bg-slate-600 text-gray-300 hover:text-white transition border border-gray-600 px-4 py-2 rounded-md"
       >
         ← Back to Home
       </button>
@@ -78,6 +83,18 @@ const MovieDetails = () => {
           </div>
         </div>
       </div>
+
+     
+      {trailer && (
+        <div className="mb-10 mt-10">
+          <iframe
+            title="Trailer"
+            src={`https://www.youtube.com/embed/${trailer.key}`}
+            className="w-full h-[400px] rounded-lg"
+            allowFullScreen
+          ></iframe>
+        </div>
+      )}
     </div>
   );
 };
