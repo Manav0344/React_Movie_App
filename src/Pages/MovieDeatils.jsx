@@ -7,13 +7,22 @@ const MovieDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [movie, setMovie] = useState(null);
+  const [trailerKey, setTrailerKey] = useState(null);
 
   useEffect(() => {
     (async () => {
       const data = await fetchFromTMDB(`movie/${id}`, {
         append_to_response: "videos",
       });
+
       setMovie(data);
+
+      
+      const trailer = data?.videos?.results?.find(
+        (v) => v.site === "YouTube" && v.type === "Trailer"
+      );
+
+      setTrailerKey(trailer ? trailer.key : null);
     })();
   }, [id]);
 
@@ -30,30 +39,33 @@ const MovieDetails = () => {
 
   if (!movie) return <div className="mt-24 text-center">Loading...</div>;
 
-
-  const trailer = movie.videos?.results?.find(
-    (v) => v.type === "Trailer" && v.site === "YouTube"
-  );
-
   return (
     <div className="max-w-6xl mx-auto mt-5 px-4">
       <Toaster position="top-right" />
 
       
       <button
-        onClick={() => navigate("/")}
-        className="mb-6 flex items-center gap-2 bg-slate-600 text-gray-300 hover:text-white transition border border-gray-600 px-4 py-2 rounded-md"
-      >
-        ← Back to Home
-      </button>
+  onClick={() => {
+    if (window.history.length > 1) {
+      navigate(-1);
+    } else {
+      navigate("/");
+    }
+  }}
+  className="mb-6 bg-slate-700 text-gray-300 hover:text-white px-4 py-2 rounded-md"
+>
+  ← Back
+</button>
 
-      <div className="grid md:grid-cols-2 gap-20 mt-5 mb-10">
+      <div className="grid md:grid-cols-2 gap-10">
+      
         <img
           src={imageURL(movie.poster_path, "w342")}
           alt={movie.title}
           className="rounded-lg w-full"
         />
 
+        {/* Info */}
         <div>
           <h1 className="text-3xl font-bold">{movie.title}</h1>
 
@@ -76,7 +88,7 @@ const MovieDetails = () => {
           <div className="mt-6">
             <button
               onClick={() => addToMyList(movie)}
-              className="bg-gray-700 px-4 py-2 rounded-md hover:bg-gray-600 transition"
+              className="bg-gray-700 px-4 py-2 rounded-md hover:bg-gray-600"
             >
               My List
             </button>
@@ -85,16 +97,23 @@ const MovieDetails = () => {
       </div>
 
      
-      {trailer && (
-        <div className="mb-10 mt-10">
+      <div className="mt-20 mb-10">
+        {trailerKey ? (
           <iframe
             title="Trailer"
-            src={`https://www.youtube.com/embed/${trailer.key}`}
+            src={`https://www.youtube.com/embed/${trailerKey}`}
             className="w-full h-[400px] rounded-lg"
             allowFullScreen
           ></iframe>
-        </div>
-      )}
+        ) : (
+          <div className="w-full h-[400px] rounded-lg bg-black flex items-center justify-center">
+            <div className="text-center text-gray-400">
+              <p className="text-xl font-semibold">Trailer Not Available</p>
+              <p className="text-sm mt-2">This movie does not have a YouTube trailer</p>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
