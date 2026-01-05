@@ -57,15 +57,15 @@ const MovieDetails = () => {
   ← Back
 </button>
 
-      <div className="grid md:grid-cols-2 gap-10">
+      <div className="grid md:grid-cols-2 gap-40">
       
         <img
           src={imageURL(movie.poster_path, "w342")}
           alt={movie.title}
-          className="rounded-lg w-full"
+          className="rounded-xl w-full"
         />
 
-        {/* Info */}
+        
         <div>
           <h1 className="text-3xl font-bold">{movie.title}</h1>
 
@@ -74,7 +74,7 @@ const MovieDetails = () => {
             {movie.release_date?.slice(0, 4)}
           </p>
 
-          <p className="mt-4 text-gray-200">{movie.overview}</p>
+          <p className="mt-4 text-gray-200 text-justify">{movie.overview}</p>
 
           <div className="mt-6 flex gap-4">
             <span className="bg-gray-800 px-4 py-2 rounded-md">
