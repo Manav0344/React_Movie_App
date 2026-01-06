@@ -1,3 +1,4 @@
+
 # 🎬 React Movie App
 
 A modern, responsive **Movie Streaming UI** built using **React + Vite + Tailwind CSS**, powered by the **TMDB API**.  
@@ -131,3 +132,7 @@ GitHub: https://github.com/Manav0344
 ---
 
 ⭐ If you like this project, give it a star on GitHub!
+
+
+<img width="1360" height="1392" alt="screencapture-manav0344-github-io-React-Movie-App-2026-01-05-13_27_53" src="https://github.com/user-attachments/assets/c978b330-c559-4531-b9fb-74b29e49fe40" />
+<img width="1360" height="1426" alt="screencapture-manav0344-github-io-React-Movie-App-2026-01-05-14_06_32" src="https://github.com/user-attachments/assets/dd3462b0-278c-41d7-ab1f-eed1c9f28fb7" />
