@@ -55,7 +55,7 @@ const Heroslider = () => {
           <div className="max-w-6xl mx-auto h-full flex items-center px-6">
             <div className="max-w-2xl">
               <h2 className="text-3xl md:text-5xl font-bold">{item.title}</h2>
-              <p className="mt-4 line-clamp-3">{item.overview}</p>
+              <p className="mt-4 line-clamp-3 text-justify">{item.overview}</p>
               <div className="mt-6 flex gap-3">
                 <Link
                   to={`/movie/${item.id}`}
