@@ -5,10 +5,17 @@ const MyList = () => {
   const [myMovies, setMyMovies] = useState([]);
 
   useEffect(() => {
-    
     const savedMovies = JSON.parse(localStorage.getItem("myList")) || [];
     setMyMovies(savedMovies);
   }, []);
+
+  // ✅ REMOVE FUNCTION
+  const handleRemove = (id) => {
+    const updatedMovies = myMovies.filter(movie => movie.id !== id);
+
+    setMyMovies(updatedMovies); // Update UI
+    localStorage.setItem("myList", JSON.stringify(updatedMovies)); // Update storage
+  };
 
   if (!myMovies.length) {
     return (
@@ -24,7 +31,11 @@ const MyList = () => {
       <h2 className="text-3xl font-bold mb-6">My List Movies</h2>
       <div className="flex flex-wrap gap-4">
         {myMovies.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
+          <MovieCard 
+            key={movie.id} 
+            movie={movie} 
+            onRemove={handleRemove} // ✅ pass remove function
+          />
         ))}
       </div>
     </div>
